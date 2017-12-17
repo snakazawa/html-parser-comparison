@@ -1,0 +1,10 @@
+.idea/
+
+data/pages/*
+!data/pages/.gitkeep
+
+data/ignore_pages/*
+!data/ignore_pages/.gitkeep
+
+ruby/vendor
+ruby/.bundle

@@ -1,0 +1,32 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    ansi (1.5.0)
+    ast (2.3.0)
+    highline (1.7.10)
+    mini_portile2 (2.3.0)
+    nokogiri (1.8.1)
+      mini_portile2 (~> 2.3.0)
+    oga (2.11)
+      ast
+      ruby-ll (~> 2.1)
+    options (2.3.2)
+    ox (2.8.2)
+    progress_bar (1.1.0)
+      highline (~> 1.6)
+      options (~> 2.3.0)
+    ruby-ll (2.1.2)
+      ansi
+      ast
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  nokogiri (~> 1.8.1)
+  oga (~> 2.11.0)
+  ox (~> 2.8.2)
+  progress_bar (~> 1.1.0)
+
+BUNDLED WITH
+   1.16.0
