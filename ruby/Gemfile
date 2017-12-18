@@ -3,4 +3,5 @@ git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
 
 gem 'nokogiri', '~> 1.8.1'
 gem 'oga', '~> 2.11.0'
+gem 'ruby-gumbo', '~> 1.1'
 gem 'progress_bar', '~> 1.1.0'

@@ -19,6 +19,7 @@ cd data
 
 ```
 cd ruby
+sudo apt-get install libxml2 libxml2-dev
 bundle install --path vendor/bundle
 ```
 
@@ -67,6 +68,9 @@ python beautifulsoup4_html5lib.py
 ```
 
 ## Parsing by C++
+
+## Requirements
+- GCC 5.4.0
 
 ### gumbo-query
 
