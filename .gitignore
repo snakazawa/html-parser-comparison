@@ -1,3 +1,5 @@
+*swp
+*~
 .idea/
 
 data/pages/*
@@ -11,3 +13,5 @@ data/ignore_pages/*
 
 ruby/vendor
 ruby/.bundle
+
+cxx/*.out
