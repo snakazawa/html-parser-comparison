@@ -1,6 +1,6 @@
 # Compare HTML Parser
 
-## Crawl
+## Crawling
 
 ```
 cd data
@@ -10,36 +10,63 @@ cd data
 ./crawl_pages.sh
 ```
 
-## Parse by Ruby
+## Parsing by Ruby
+
+### Requirements
+- Ruby 2.4.3
+
+### Preparation
 
 ```
 cd ruby
 bundle install --path vendor/bundle
+```
 
-# use Nokogiri
+### Nokogiri (libxml2)
+
+```
 bundle exec ruby nokogiri.rb
+```
 
-# use Oga
+### Oga
+
+```
 bundle exec ruby oga.rb
 ```
 
-## Parse by Python
+## Parsing by Python
+
+### Requirements
+- Python 3.6.0
+
+### Preparation
 
 ```
 cd python
 pip install -r requirements.txt
 
-# use BeautifulSoup4 with html.parser
+```
+
+### BeautifulSoup4 (html.parser)
+
+```
 python beautifulsoup4_html_parser.py
 
-# use BeautifulSoup4 with lxml
-python beautifulsoup4_lxml.py
+```
 
-# use BeautifulSoup4 with html5lib
+### BeautifulSoup4 (lxml)
+
+```
+python beautifulsoup4_lxml.py
+```
+
+### BeautifulSoup4 (html5lib)
+
+```
 python beautifulsoup4_html5lib.py
 ```
 
-## Parse by C++
+## Parsing by C++
 
 ### gumbo-query
 
@@ -68,3 +95,7 @@ cd compare_html_parser/cxx
 g++ -std=c++1y -O2 gumbo_test.cpp -o gumbo_test.out -I/usr/local/include -L/usr/local/lib -lgumbo -lgq
 ./gumbo_test
 ```
+
+## Parsing by Node.js
+
+**TODO**
