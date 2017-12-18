@@ -28,7 +28,19 @@ bundle exec ruby oga.rb
 
 ## Parse by Python
 
-**TODO**
+```
+cd python
+pip install -r requirements.txt
+
+# use BeautifulSoup4 with html.parser
+python beautifulsoup4_html_parser.py
+
+# use BeautifulSoup4 with lxml
+python beautifulsoup4_lxml.py
+
+# use BeautifulSoup4 with html5lib
+python beautifulsoup4_html5lib.py
+```
 
 ## Parse by C++
 
