@@ -3,6 +3,9 @@
 data/pages/*
 !data/pages/.gitkeep
 
+data/articles*.txt
+data/calendars*.txt
+
 data/ignore_pages/*
 !data/ignore_pages/.gitkeep
 
