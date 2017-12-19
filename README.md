@@ -1,5 +1,10 @@
 # Compare HTML Parser
 
+## Benchmark
+
+**TODO: method explanation**
+**TODO: table, columns: language, name, file/sec, errors, parser, support query, can parse `<option>`?**
+
 ## Crawling
 
 ```
@@ -88,6 +93,28 @@ node libxmljs_test.js
 ```
 node jsdom_test.js
 ```
+
+### dom-parser
+
+**WARNING: css query and xpath are not supported**  
+**WARNING: all parsing are performed with regex in just time**
+
+```
+node dom_parser_test.js
+```
+
+### fast-html-parser
+
+```
+node fast_html_parser.js
+```
+
+### cheerio (htmlparser2)
+
+```
+node cheerio_test.js
+```
+
 
 ## Parsing by C++
 
