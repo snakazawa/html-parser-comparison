@@ -45,14 +45,12 @@ bundle exec ruby oga.rb
 ```
 cd python
 pip install -r requirements.txt
-
 ```
 
 ### BeautifulSoup4 (html.parser)
 
 ```
 python beautifulsoup4_html_parser.py
-
 ```
 
 ### BeautifulSoup4 (lxml)
@@ -65,6 +63,24 @@ python beautifulsoup4_lxml.py
 
 ```
 python beautifulsoup4_html5lib.py
+```
+
+## Parsing by Node.js
+
+### Requirements
+- Node.js 8.1.2
+
+### Preparation
+
+```
+cd node
+yarn install # or npm install
+```
+
+### libxmljs (libxml)
+
+```
+node libxmljs_test.js
 ```
 
 ## Parsing by C++
@@ -99,7 +115,3 @@ cd compare_html_parser/cxx
 g++ -std=c++1y -O2 gumbo_test.cpp -o gumbo_test.out -I/usr/local/include -L/usr/local/lib -lgumbo -lgq
 ./gumbo_test
 ```
-
-## Parsing by Node.js
-
-**TODO**
