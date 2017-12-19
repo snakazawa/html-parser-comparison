@@ -19,10 +19,10 @@ filenames.forEach((filename, i) => {
     const content = fs.readFileSync(filePath, 'utf-8');
     const doc = libxmljs.parseHtml(content);
 
-    const node = doc.get('//h1');
-    if (node) {
-        console.log(node.text());
-    }
+    // const node = doc.get('//h1');
+    // if (node) {
+    //     console.log(node.text());
+    // }
 
     bar.tick();
     if (!((i + 1) % INTERVAL) || i + 1 === len) {
