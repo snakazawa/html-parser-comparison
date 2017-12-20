@@ -9,7 +9,11 @@ err_cnt = 0
 
 pages.with_progress.each do |page|
   begin
-    File.open(dir_path + page) { |f| Nokogiri::HTML(f) }
+    doc = File.open(dir_path + page) { |f| Nokogiri::HTML(f) }
+    node = doc.at_xpath('//h1')
+    # puts node.text unless node.nil?
+    # node = doc.at_xpath('//option')
+    # puts node.text unless node.nil?
   rescue => e
     err_cnt += 1
   end

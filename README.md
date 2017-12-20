@@ -1,9 +1,43 @@
-# Compare HTML Parser
+# HTML Parser Comparable
 
 ## Benchmark
 
-**TODO: method explanation**
-**TODO: table, columns: language, name, file/sec, errors, parser, support query, can parse `<option>`?**
+This benchmark is measured by the following steps (see test codes):
+
+1. Load first HTML file.
+2. Find first 'h1' tag.
+3. Load next HTML file.
+4. Find first 'h1' tag.
+5. If target HTML files are remained, go to step 3, otherwise end the measurement.
+
+Target HTML files are **8212** files of articles in [Qiita Advent Calendar 2017](https://qiita.com/advent-calendar/2017).  
+The measurement is performed **10** times, and the average score is set as the result score.
+
+| language (or platform) |       name       | file/sec | errors |        parser         |   support query    | can parse `<option>' tag? | note                                   |
+| :--------------------: | :--------------: | :------: | :----: | :-------------------: | :----------------: | :-----------------------: | :------------------------------------- |
+|          Ruby          |     Nokogiri     |    ?     |   ?    |      libxml2 (C)      |     XPath, CSS     |            yes            |                                        |
+|          Ruby          |       Oga        |    ?     |   ?    | ast, ruby-ll (native) |     XPath, CSS     |            yes            |                                        |
+|         Python         |  BeautifulSoup4  |    ?     |   ?    | html.parser (native)  | CSS, find function |            yes            |                                        |
+|         Python         |  BeautifulSoup4  |    ?     |   ?    |       lxml (C)        | CSS, find function |            yes            |                                        |
+|         Python         |  BeautifulSoup4  |    ?     |   ?    |   html5lib (native)   | CSS, find function |            yes            |                                        |
+|        Node.js         |     cheerio      |    ?     |   ?    | htmlparser2 (native)  |         ?          |             ?             |                                        |
+|        Node.js         |     libxmljs     |    ?     |   ?    |      libxml (C)       |         ?          |             ?             |                                        |
+|        Node.js         |      jsdom       |    ?     |   ?    |    parse5 (native)    |         ?          |             ?             |                                        |
+|        Node.js         |    dom-parser    |    ?     |   ?    |       (native)        |  old DOM function  |             ?             | the content is not parsed at load time |
+|        Node.js         | fast-html-parser |    ?     |   ?    |       (native)        |         ?          |             ?             |                                        |
+|          C++           |   gumbo-query    |    ?     |   ?    |   gumbo-parser (C)    |        CSS         |             ?             |                                        |
+
+
+`file/sec` column indicates 8212 divided by several total parsing seconds.  
+`can parse '<option>' tag?` column means whether several parser can parse such following HTML text.
+
+```html
+<select>
+  <option value="a">A
+  <option value="b">B
+  <option value="c">C
+</select>
+```
 
 ## Crawling
 
@@ -12,7 +46,7 @@ cd data
 ./crawl_calendars.sh | tee calendars.txt | grep -ve '^page ' | ./crawl_articles.sh | tee articles.txt | ./crawl_pages.sh
 
 # check
-./crawl_pages.sh
+./check_pages.sh
 ```
 
 ## Parsing by Ruby
