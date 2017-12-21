@@ -10,7 +10,7 @@ This benchmark is measured by the following steps (see test codes):
 4. Find first 'h1' tag.
 5. If target HTML files are remained, go to step 3, otherwise end the measurement.
 
-Target HTML files are **8212** files of articles in [Qiita Advent Calendar 2017](https://qiita.com/advent-calendar/2017).  
+Target HTML files are **8212** files of articles in [Qiita Advent Calendar 2017](https://qiita.com/advent-calendar/2017) (not utf-8 file are exceeded).  
 The measurement is performed **10** times, and the average score is set as the result score.
 
 | language (or platform) |       name       | file/sec | errors |        parser         |   support query    | can parse `<option>' tag? | note                                   |
@@ -29,15 +29,7 @@ The measurement is performed **10** times, and the average score is set as the r
 
 
 `file/sec` column indicates 8212 divided by several total parsing seconds.  
-`can parse '<option>' tag?` column means whether several parser can parse such following HTML text.
 
-```html
-<select>
-  <option value="a">A
-  <option value="b">B
-  <option value="c">C
-</select>
-```
 
 ## Crawling
 
@@ -65,13 +57,13 @@ bundle install --path vendor/bundle
 ### Nokogiri (libxml2)
 
 ```
-bundle exec ruby nokogiri.rb
+bundle exec ruby nokogiri_test.rb
 ```
 
 ### Oga
 
 ```
-bundle exec ruby oga.rb
+bundle exec ruby oga_test.rb
 ```
 
 ## Parsing by Python
@@ -89,19 +81,19 @@ pip install -r requirements.txt
 ### BeautifulSoup4 (html.parser)
 
 ```
-python beautifulsoup4_html_parser.py
+python beautifulsoup4_html_parser_test.py
 ```
 
 ### BeautifulSoup4 (lxml)
 
 ```
-python beautifulsoup4_lxml.py
+python beautifulsoup4_lxml_test.py
 ```
 
 ### BeautifulSoup4 (html5lib)
 
 ```
-python beautifulsoup4_html5lib.py
+python beautifulsoup4_html5lib_test.py
 ```
 
 ## Parsing by Node.js
@@ -140,7 +132,7 @@ node dom_parser_test.js
 ### fast-html-parser
 
 ```
-node fast_html_parser.js
+node fast_html_parser_test.js
 ```
 
 ### cheerio (htmlparser2)
@@ -179,6 +171,6 @@ sudo /sbin/ldconfig
 
 # test
 cd compare_html_parser/cxx
-g++ -std=c++1y -O2 gumbo_test.cpp -o gumbo_test.out -I/usr/local/include -L/usr/local/lib -lgumbo -lgq
-./gumbo_test
+g++ -std=c++1y -O2 gumbo_query_test.cpp -o gumbo_query_test.out -I/usr/local/include -L/usr/local/lib -lgumbo -lgq
+./gumbo_query_test.out
 ```

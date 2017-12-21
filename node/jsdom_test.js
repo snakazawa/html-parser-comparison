@@ -1,4 +1,4 @@
-const {JSDOM} = require('jsdom');
+const {JSDOM, VirtualConsole} = require('jsdom');
 const ProgressBar = require('progress');
 const fs = require('fs');
 const path = require('path');
@@ -14,13 +14,16 @@ const bar = new ProgressBar(':current/:total :percent [:bar] :elapseds/:etas :ra
     total: len
 });
 
+const virtualConsole = new VirtualConsole();
+
 (async () => {
     for (let i = 0; i < len; ++i) {
         const filePath = path.resolve(dirPath, filenames[i]);
-        const dom = await JSDOM.fromFile(filePath);
+        const dom = await JSDOM.fromFile(filePath, {virtualConsole});
 
-        // const {window: {document: doc}} = dom;
-        // const nodes = doc.getElementsByTagName('h1');
+        const {window: {document: doc}} = dom;
+        const nodes = doc.getElementsByTagName('h1');
+        // const nodes = doc.getElementsByTagName('option');
         // if (nodes.length) {
         //     console.log(nodes[0].textContent);
         // }

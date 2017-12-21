@@ -53,10 +53,10 @@ int main(int argc, char * argv[])
         CDocument doc;
         doc.parse(text.c_str());
 
-        //CSelection c = doc.find("h1");
-        //if (c.nodeNum() == 0) continue;
-        //cout << c.nodeAt(0).text() << std::endl; // some link
-
+        CSelection c = doc.find("h1");
+//        CSelection c = doc.find("option");
+//        if (c.nodeNum() == 0) continue;
+//        cout << c.nodeAt(0).text() << std::endl;
         ++progress_bar;
         progress_bar.display();
     }

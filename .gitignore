@@ -17,3 +17,5 @@ ruby/.bundle
 cxx/*.out
 
 node/node_modules/
+
+temp/

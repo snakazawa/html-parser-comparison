@@ -19,7 +19,8 @@ filenames.forEach((filename, i) => {
     const content = fs.readFileSync(filePath, 'utf-8');
     const doc = libxmljs.parseHtml(content);
 
-    // const node = doc.get('//h1');
+    const node = doc.get('//h1');
+    // const node = doc.get('//option');
     // if (node) {
     //     console.log(node.text());
     // }

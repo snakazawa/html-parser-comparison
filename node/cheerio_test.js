@@ -19,7 +19,8 @@ filenames.forEach((filename, i) => {
     const content = fs.readFileSync(filePath, 'utf-8');
     const $ = cheerio.load(content);
 
-    // const nodes = $('h1');
+    const nodes = $('h1');
+    // const nodes = $('option');
     // if (nodes.length) {
     //     console.log(nodes.first().text());
     // }

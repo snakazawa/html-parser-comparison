@@ -19,9 +19,10 @@ filenames.forEach((filename, i) => {
     const content = fs.readFileSync(filePath, 'utf-8');
     const doc = HTMLParser.parse(content);
 
-    const nodes = doc.querySelectorAll('h1');
-    // if (nodes.length) {
-    //     console.log(nodes[0].text);
+    const node = doc.querySelector('h1');
+    // const node = doc.querySelector('option');
+    // if (node) {
+    //     console.log(node.text);
     // }
 
     bar.tick();

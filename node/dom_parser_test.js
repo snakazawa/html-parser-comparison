@@ -16,18 +16,29 @@ const bar = new ProgressBar(':current/:total :percent [:bar] :elapseds/:etas :ra
 
 const parser = new DomParser();
 
-filenames.forEach((filename, i) => {
-    const filePath = path.resolve(dirPath, filenames[i]);
-    const content = fs.readFileSync(filePath, 'utf-8');
-    const doc = parser.parseFromString(content);
+let err_cnt = 0;
 
-    const nodes = doc.getElementsByTagName('h1');
-    // if (nodes.length) {
-    //     console.log(nodes[0].textContent);
-    // }
+filenames.forEach((filename, i) => {
+    try {
+
+        const filePath = path.resolve(dirPath, filenames[i]);
+        const content = fs.readFileSync(filePath, 'utf-8');
+        const doc = parser.parseFromString(content);
+
+        const nodes = doc.getElementsByTagName('h1');
+        // const nodes = doc.getElementsByTagName('option');
+        // if (nodes.length) {
+        //     console.log(nodes[0].textContent);
+        // }
+    } catch (e) {
+        err_cnt += 1;
+    }
+
 
     bar.tick();
     if (!((i + 1) % INTERVAL) || i + 1 === len) {
         bar.render();
     }
 });
+
+console.log(`err_cnt: ${err_cnt}`);

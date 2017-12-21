@@ -11,7 +11,7 @@ err_cnt = 0
 
 for page_path in tqdm(page_paths):
     try:
-        soup = BeautifulSoup(open(page_path), 'lxml', parse_only=SoupStrainer('hoge'))
+        soup = BeautifulSoup(open(page_path), 'lxml', parse_only=SoupStrainer('h1'))
         node = soup.find('h1')
         # if node is not None:
         #     print(node.text)
