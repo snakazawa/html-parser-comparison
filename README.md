@@ -1,6 +1,6 @@
 # HTML Parser Comparison
 
-**This is a personal investigation.**
+**:warning: This is a personal investigation. :warning:**
 
 ## Benchmark
 
