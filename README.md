@@ -1,4 +1,6 @@
-# HTML Parser Comparable
+# HTML Parser Comparison
+
+**This is a personal investigation.**
 
 ## Benchmark
 
@@ -10,25 +12,22 @@ This benchmark is measured by the following steps (see test codes):
 4. Find first 'h1' tag.
 5. If target HTML files are remained, go to step 3, otherwise end the measurement.
 
-Target HTML files are **8212** files of articles in [Qiita Advent Calendar 2017](https://qiita.com/advent-calendar/2017) (not utf-8 file are exceeded).  
+Target HTML files are **10599** files of articles in [Qiita Advent Calendar 2017](https://qiita.com/advent-calendar/2017) (not utf-8 file are exceeded).  
 The measurement is performed **10** times, and the average score is set as the result score.
 
-| language (or platform) |       name       | file/sec | errors |        parser         |   support query    | can parse `<option>' tag? | note                                   |
-| :--------------------: | :--------------: | :------: | :----: | :-------------------: | :----------------: | :-----------------------: | :------------------------------------- |
-|          Ruby          |     Nokogiri     |    ?     |   ?    |      libxml2 (C)      |     XPath, CSS     |            yes            |                                        |
-|          Ruby          |       Oga        |    ?     |   ?    | ast, ruby-ll (native) |     XPath, CSS     |            yes            |                                        |
-|         Python         |  BeautifulSoup4  |    ?     |   ?    | html.parser (native)  | CSS, find function |            yes            |                                        |
-|         Python         |  BeautifulSoup4  |    ?     |   ?    |       lxml (C)        | CSS, find function |            yes            |                                        |
-|         Python         |  BeautifulSoup4  |    ?     |   ?    |   html5lib (native)   | CSS, find function |            yes            |                                        |
-|        Node.js         |     cheerio      |    ?     |   ?    | htmlparser2 (native)  |         ?          |             ?             |                                        |
-|        Node.js         |     libxmljs     |    ?     |   ?    |      libxml (C)       |         ?          |             ?             |                                        |
-|        Node.js         |      jsdom       |    ?     |   ?    |    parse5 (native)    |         ?          |             ?             |                                        |
-|        Node.js         |    dom-parser    |    ?     |   ?    |       (native)        |  old DOM function  |             ?             | the content is not parsed at load time |
-|        Node.js         | fast-html-parser |    ?     |   ?    |       (native)        |         ?          |             ?             |                                        |
-|          C++           |   gumbo-query    |    ?     |   ?    |   gumbo-parser (C)    |        CSS         |             ?             |                                        |
-
-
-`file/sec` column indicates 8212 divided by several total parsing seconds.  
+| language (or platform) |       name       |             parser             |       support query       | performance (file/sec) | errors | note                               |
+| :--------------------: | :--------------: | :----------------------------: | :-----------------------: | :--------------------: | :----: | :--------------------------------- |
+|          Ruby          |     Nokogiri     |          libxml2 (C)           |        XPath, CSS         |          245           |   0    |                                    |
+|          Ruby          |       Oga        |     ast, ruby-ll (native)      |        XPath, CSS         |           66           |   31   |                                    |
+|         Python         |  BeautifulSoup4  | html.parser (standard library) |    CSS, find function     |           42           |   5    |                                    |
+|         Python         |  BeautifulSoup4  |            lxml (C)            |    CSS, find function     |           60           |   5    |                                    |
+|         Python         |  BeautifulSoup4  |       html5lib (native)        |    CSS, find function     |           17           |   5    |                                    |
+|        Node.js         |     cheerio      |      htmlparser2 (native)      | CSS, jquery like function |          125           |   0    |                                    |
+|        Node.js         |     libxmljs     |           libxml (C)           |           XPath           |          383           |   0    |                                    |
+|        Node.js         |      jsdom       |        parse5 (native)         |     CSS, DOM function     |           36           |   0    |                                    |
+|        Node.js         |    dom-parser    |            (native)            |     old DOM function      |          1562          |   1    | the content is parsed at just time |
+|        Node.js         | fast-html-parser |            (native)            |            CSS            |          1400          |   0    |                                    |
+|          C++           |   gumbo-query    |        gumbo-parser (C)        |            CSS            |          459           |   0    |                                    |
 
 
 ## Crawling
