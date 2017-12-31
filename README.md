@@ -4,7 +4,7 @@
 
 ## Benchmark
 
-This benchmark is measured by the following steps (see test codes):
+This benchmark is measured by the following steps (see also test codes):
 
 1. Load first HTML file.
 2. Find first 'h1' tag.
@@ -12,8 +12,8 @@ This benchmark is measured by the following steps (see test codes):
 4. Find first 'h1' tag.
 5. If target HTML files are remained, go to step 3, otherwise end the measurement.
 
-Target HTML files are **10599** files of articles in [Qiita Advent Calendar 2017](https://qiita.com/advent-calendar/2017) (not utf-8 file are exceeded).  
-The measurement is performed **10** times, and the average score is set as the result score.
+Parsed targets are **10599** HTML files of articles in [Qiita Advent Calendar 2017](https://qiita.com/advent-calendar/2017) (not utf-8 files are exceeded).  
+I performed this measurement **10** times, and set the average scores as the result scores.
 
 | language (or platform) |       name       |             parser             |       support query       | performance (file/sec) | errors | note                               |
 | :--------------------: | :--------------: | :----------------------------: | :-----------------------: | :--------------------: | :----: | :--------------------------------- |
